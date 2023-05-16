@@ -3,7 +3,6 @@ import Header from './components/Header/Header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Store from './components/Pages/Store'
 import Home from './components/Pages/Home'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import About from './components/Pages/About'
 
 const App = () => {
