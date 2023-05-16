@@ -1,12 +1,18 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import HeadlineCards from './components/HeadlineCard'
+import Food from './components/Food'
+import Category from './components/Category'
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Hero/>
+      <Hero />
+      <HeadlineCards />
+      <Food />
+      <Category/>
     </div>
   )
 }
