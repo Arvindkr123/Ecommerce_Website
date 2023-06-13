@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Store from './components/Pages/Store'
 import Home from './components/Pages/Home'
 import About from './components/Pages/About'
+import Cart from './components/Pages/Cart'
 
 const App = () => {
   return (
