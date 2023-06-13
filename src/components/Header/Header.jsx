@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { cartElements } from '../CartElements';
 import Cart from '../Pages/Cart';
 import { CartContext } from '../../../store/CartContextProvider';
@@ -20,15 +20,15 @@ const Header = () => {
     return (
         <div className="bg-black flex text-white justify-between items-center">
             <ul className="flex justify-center w-full text-2xl gap-5 m-2">
-                <Link className="hover:underline" to="/">
+                <NavLink className="hover:underline" to="/">
                     HOME
-                </Link>
-                <Link className="hover:underline" to="/store">
+                </NavLink>
+                <NavLink className="hover:underline" to="/store">
                     STORE
-                </Link>
-                <Link className="hover:underline" to="/about">
+                </NavLink>
+                <NavLink className="hover:underline" to="/about">
                     ABOUT
-                </Link>
+                </NavLink>
             </ul>
             <div className="m-5 text-2xl relative mr-6" onClick={() => setCartOpen(!isCartOpen)}>
                 <p>

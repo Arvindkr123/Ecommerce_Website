@@ -1,16 +1,15 @@
-import React, { createContext, useState } from 'react'
-import { cartElements } from '../src/components/CartElements';
+import { createContext, useState, useEffect } from "react";
+import { cartElements } from "../src/components/CartElements";
 
 export const CartContext = createContext('');
 
 const CartContextProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([...cartElements])
+    const [cartItems, setCartItems] = useState([...cartElements]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const addtheCartItems = (item) => {
-        // first find the item in the array
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
         if (existingItem) {
-            // item is exist in the array then just increase the qty
             const updatedCartItems = cartItems.map((cartItem) =>
                 cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
             );
@@ -20,11 +19,20 @@ const CartContextProvider = ({ children }) => {
         }
     };
 
+    useEffect(() => {
+        const calculateTotalPrice = () => {
+            const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+            setTotalPrice(totalPrice);
+        };
+
+        calculateTotalPrice();
+    }, [cartItems]);
+
     return (
-        <CartContext.Provider value={{ cartItems, addtheCartItems }}>
+        <CartContext.Provider value={{ cartItems, totalPrice, addtheCartItems }}>
             {children}
         </CartContext.Provider>
-    )
-}
+    );
+};
 
-export default CartContextProvider
+export default CartContextProvider;

@@ -42,7 +42,6 @@ const Store = () => {
                     })
                 }
             </div>
-            <button className='text-center mx-auto bg-[#777] p-3 text-white rounded ml-[45rem] mb-6 text-xl'>See the cart</button>
         </div>
     )
 }

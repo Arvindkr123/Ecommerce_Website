@@ -6,6 +6,7 @@ import Home from './components/Pages/Home'
 import About from './components/Pages/About'
 import Cart from './components/Pages/Cart'
 import CartContextProvider from '../store/CartContextProvider'
+import Footer from './components/Pages/Footer'
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
         <Route path='/' exact element={<Home />}></Route>
         <Route path='/store' exact element={<Store />}></Route>
         <Route path='/about' exact element={<About />}></Route>
-      </Routes>
+        </Routes>
+        <Footer/>
     </BrowserRouter>
     </CartContextProvider>
   )
