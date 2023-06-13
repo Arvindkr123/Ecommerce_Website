@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { cartElements } from '../CartElements';
 import Cart from '../Pages/Cart';
+import { CartContext } from '../../../store/CartContextProvider';
 
 const Header = () => {
     const [isCartOpen, setCartOpen] = useState(false);
@@ -13,6 +14,8 @@ const Header = () => {
     const handleCloseClick = () => {
         setCartOpen(false);
     };
+
+    const { cartItems } = useContext(CartContext);
 
     return (
         <div className="bg-black flex text-white justify-between items-center">
@@ -29,7 +32,7 @@ const Header = () => {
             </ul>
             <div className="m-5 text-2xl relative mr-6" onClick={() => setCartOpen(!isCartOpen)}>
                 <p>
-                    cart <span className="absolute -top-2">0</span>
+                    cart <span className="absolute -top-2 bg-red-800 p-1 rounded">{cartItems?.length}</span>
                 </p>
             </div>
             {isCartOpen && (
@@ -49,7 +52,7 @@ const Header = () => {
                                 <li className='border-b-2'>QUANTITY</li>
                             </ul>
                             {
-                                cartElements.map((item) => {
+                                cartItems.map((item) => {
                                     return <Cart key={item.id} item={item}></Cart>
                                 })
                             }

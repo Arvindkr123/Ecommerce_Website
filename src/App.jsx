@@ -5,9 +5,11 @@ import Store from './components/Pages/Store'
 import Home from './components/Pages/Home'
 import About from './components/Pages/About'
 import Cart from './components/Pages/Cart'
+import CartContextProvider from '../store/CartContextProvider'
 
 const App = () => {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -16,6 +18,7 @@ const App = () => {
         <Route path='/about' exact element={<About />}></Route>
       </Routes>
     </BrowserRouter>
+    </CartContextProvider>
   )
 }
 
