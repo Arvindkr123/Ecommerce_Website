@@ -1,22 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Header.css'
-
 const Header = () => {
     return (
-        <ul className='bg-black text-uppercase  d-flex align-content-between justify-content-center gap-5'>
-            <li>
-                <Link to='/' exact>Home</Link>
-            </li>
-            <li>
-                <Link to='/store' exact>Store</Link>
-            </li>
-            <li>
-                <Link to='/about' exact>About</Link>
-            </li>
-
-        </ul>
+        <div className='bg-black flex text-white justify-between items-center'>
+            <ul className='flex justify-center w-full text-2xl gap-5 m-2 '>
+                <Link className='hover:underline' to='/'>HOME</Link>
+                <Link className='hover:underline' to='/store'>STORE</Link>
+                <Link className='hover:underline' to='/about'>ABOUT</Link>
+            </ul>
+            <div className='m-5 text-2xl relative'>
+                <p className=''>cart <span className='absolute -top-2'>0</span></p>
+            </div>
+        </div>
     )
+
 }
 
 export default Header
