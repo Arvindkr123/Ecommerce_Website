@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from '../Product'
+import { Link } from 'react-router-dom'
 
 const Store = () => {
     const productsArr = [
@@ -38,7 +39,7 @@ const Store = () => {
             <div className='text-center m-8 flex justify-center flex-wrap gap-16'>
                 {
                     productsArr.map((prod) => {
-                        return <Product key={prod.id} prod={prod} />
+                        return <Link to={`/store/${prod.id}`}><Product key={prod.id} prod={prod} /></Link>
                     })
                 }
             </div>
